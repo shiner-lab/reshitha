@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Reshitha ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.15);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 2;
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  .quote {
+    font-style: italic;
+    margin: 10px 0;
+  }
+
+  button {
+    padding: 12px 26px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+  #yesBtn {
+    background: #ff2f6e;
+    color: white;
+    margin-right: 20px;
+  }
+
+  #noBtn {
+    background: white;
+    color: #ff2f6e;
+    position: absolute;
+  }
+
+  .secret {
+    display: none;
+    margin-top: 20px;
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .penguin {
+    position: fixed;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 90px;
+    transition: bottom 0.6s ease;
+    z-index: 1;
+  }
+
+  .penguin.show {
+    bottom: 20px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Reshitha ❤️</h1>
+
+  <div class="quote">“Some love stories begin in school corridors.”</div>
+  <div class="quote">“Same school. Same memories. One heart.”</div>
+
+  <p>Will you be my Valentine? 💕</p>
+
+  <button id="yesBtn">Yes 💖</button>
+  <button id="noBtn">No 🙈</button>
+
+  <div class="secret" id="secretMsg">
+    🐧<br><br>
+    <strong>Secret Code:</strong> <em>PENGUIN WALK</em><br><br>
+    From school benches to my heart,<br>
+    this penguin already chose you forever 💞<br>
+    — Anil
+  </div>
+</div>
+
+<div class="penguin" id="penguin">🐧</div>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+  const penguin = document.getElementById("penguin");
+  const secret = document.getElementById("secretMsg");
+
+  // place NO button initially
+  moveNoButton();
+
+  function moveNoButton() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  }
+
+  // Run away on hover (desktop)
+  noBtn.addEventListener("mouseenter", moveNoButton);
+
+  // Run away on touch (mobile)
+  noBtn.addEventListener("touchstart", moveNoButton);
+
+  // YES click works properly
+  yesBtn.addEventListener("click", () => {
+    penguin.classList.add("show");
+    secret.style.display = "block";
+  });
+</script>
+
+</body>
+</html>
